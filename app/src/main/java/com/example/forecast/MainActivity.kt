@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val todayTextview = findViewById<TextView>(R.id.todayTextview)
         val forecastTextview = findViewById<TextView>(R.id.forecastTextview)
         val weatherButton = findViewById<Button>(R.id.weatherButton)
 
@@ -24,8 +25,15 @@ class MainActivity : AppCompatActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe ( {
-                    forecastTextview.text = "${it.temperature} ${it.wind} ${it.description}" +
-                            "${it.forecast}"
+                    todayTextview.text = "${it.temperature} ${it.wind} ${it.description}"
+                    it.forecast.forEach {
+                        val day = "${it.day} ${it.wind} ${it.temperature}"
+                        forecastTextview.text = day
+                    }
+
+
+                    //forecastTextview.text = "${it.forecast}"
+
                 }, {
                     Toast.makeText(this, "Error ${it.message}", Toast.LENGTH_LONG).show()
                 }

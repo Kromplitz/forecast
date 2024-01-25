@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface APIInterface {
 
-    @GET("/weather/Odessa")
+    @GET("/weather/Lviv")
     fun getForecast():Single<ForecastResponse>
 
 }
