@@ -15,21 +15,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val todayTextview = findViewById<TextView>(R.id.todayTextview)
-        val forecastTextview = findViewById<TextView>(R.id.forecastTextview)
+
         val weatherButton = findViewById<Button>(R.id.weatherButton)
 
         weatherButton.setOnClickListener {
-        forecastTextview.text = ""
+
         val apiClient = APIClient.client.create(APIInterface::class.java)
             apiClient.getForecast()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe ( {
                     todayTextview.text = "${it.temperature} ${it.wind} ${it.description}"
-                    it.forecast.forEach {
-                        val day = "${it.day} ${it.wind} ${it.temperature}"
-                        forecastTextview.text = day
-                    }
+
 
 
                     //forecastTextview.text = "${it.forecast}"

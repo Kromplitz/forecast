@@ -7,37 +7,26 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/forecastTextview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Прогноз на наступні дні"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.446" />
-
-    <TextView
         android:id="@+id/todayTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Погода сьогодні"
-        app:layout_constraintBottom_toTopOf="@+id/forecastTextview"
+        app:layout_constraintBottom_toTopOf="@+id/weatherButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
     <Button
         android:id="@+id/weatherButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
         android:text="Отримати"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forecastTextview" />
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
